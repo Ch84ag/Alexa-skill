@@ -1,0 +1,139 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "cake time",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+            "yes"
+          ]
+        },
+        {
+          "name": "GetBirthdayIntent",
+          "slots": [
+            {
+              "name": "month",
+              "type": "AMAZON.Month",
+              "samples": [
+                "{month}"
+              ]
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "samples": [
+                "{year}"
+              ]
+            }
+          ],
+          "samples": [
+            "{year}",
+            "{month}",
+            "okay I know it was {year} but the month may be {month} ",
+            "i\u0027m guessing {year} and maybe {month}",
+            "oh she was born in {month} of {year}",
+            "{month} {year}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "{month}"
+              }
+            }
+          ],
+          "name": "AMAZON.Month"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetBirthdayIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "month",
+              "type": "AMAZON.Month",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1495478592972.916956533907"
+              }
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1495478592972.1143270868884"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1495478592972.916956533907",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Thanks , What month were they born in?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1495478592972.1143270868884",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Thanks, What year were they born in?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "8"
+}
